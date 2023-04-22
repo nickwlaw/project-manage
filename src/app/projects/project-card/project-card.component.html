@@ -1,0 +1,18 @@
+<a [routerLink]="['./', project.id]">
+  <div class="card">
+    <img [src]="project.imageUrl" [alt]="project.name" />
+    <section class="section dark">
+      <h5 class="strong">
+        <strong>{{ project.name }}</strong>
+      </h5>
+      <p>{{ project.description }}</p>
+      <p>
+        Budget : {{ project.budget | currency : "USD" : "symbol" : "0.0-2" }}
+      </p>
+      <button class="bordered" (click)="onEditClick(project, $event)">
+        <span class="icon-edit"></span>
+        Edit
+      </button>
+    </section>
+  </div>
+</a>

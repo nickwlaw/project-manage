@@ -1,0 +1,28 @@
+<form [formGroup]="projectForm" class="input-group vertical">
+    
+    <label for="name" [class.invalid]="projectForm.get('name')?.invalid">Project Name</label>
+    <input type="text" name="name" placeholder="enter name"
+        formControlName="name">
+    
+    <app-validation-errors [control]="projectForm.get('name')"></app-validation-errors>
+
+    <label for="description">Project Description</label>
+    <textarea type="text" name="description" placeholder="enter description"
+        formControlName="description"></textarea>
+    
+    <label for="budget">Project Budget</label>
+    <input type="number" name="budget" placeholder="enter budget"
+        formControlName="budget">
+    
+    <label for="isActive">Active?</label>
+    <input type="checkbox" name="isActive"
+        formControlName="isActive">
+    
+    <div class="input-group">
+        <button class="primary bordered medium" (click)="onSubmit()">Save</button>
+        <span></span>
+        <a href="" (click)="onCancelClick($event)">cancel</a>
+        <span></span>
+    </div>
+    <button class="bordered medium" (click)="onDeleteClick()">Delete</button>
+</form>

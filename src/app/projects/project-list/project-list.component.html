@@ -1,0 +1,16 @@
+<input type="text" [(ngModel)]="searchBy" placeholder="Search for projects"/>
+<button class="primary" (click)="navigateToCreate()">Create New Project</button>
+<div class="row">
+    <div class="cols-sm" *ngFor="let project of projects | search: searchBy">
+        <app-project-card [project]="project" (edit)="onEdit($event)"
+            *ngIf="project !== editingProject">
+        </app-project-card>
+        <app-project-form
+            [project]="project"
+            *ngIf="project === editingProject"
+            (delete)="onDelete($event)"
+            (cancel)="onCancel()"
+            (save)="onSave($event)">
+        </app-project-form>
+    </div>
+</div>

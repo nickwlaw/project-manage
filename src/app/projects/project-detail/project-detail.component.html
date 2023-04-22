@@ -1,0 +1,20 @@
+<div *ngIf="project">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card large">
+        <img class="rounded" [src]="project.imageUrl" [alt]="project.name">
+        <section class="section dark">
+          <h3 class="strong">
+            <strong>{{project.name}}</strong>
+          </h3>
+          <p>{{project.description}}</p>
+          <p>Budget : {{project.budget | currency: 'USD' : 'symbol' : '0.0-2'}}</p>
+          <p>Signed: {{project.contractSignedOn | date}}</p>
+          <p>
+            <mark class="active"> {{project.isActive? 'active': 'inactive'}}</mark>
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

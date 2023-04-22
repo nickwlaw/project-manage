@@ -1,0 +1,15 @@
+<h1>New Project</h1>
+<div *ngIf="loading" class="center-page">
+  <span class="spinner primary"></span>
+  <p>Loading...</p>
+</div>
+<div class="row">
+  <div *ngIf="errorMessage" class="card large error">
+    <section>
+      <p>
+        <span class="icon-alert inverse "></span> {{errorMessage}}
+      </p>
+    </section>
+  </div>
+</div>
+<app-project-create (save)="onCreateProject($event)" (cancel)="onCancel()"></app-project-create>
